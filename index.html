@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<style type="text/css">
+		.home{
+			position:absolute;
+			left:200px;
+			top:500px;
+		}
+		.school{
+			position:absolute;
+			left:1200px;
+			top:300px;
+			width:200px;
+			height:100px;
+		}
+		.main_player{
+			transition:1s;
+			position:absolute;
+			left:700px;
+			top:600px;
+		}
+		.loc1_player{
+			position:absolute;
+			left:400px;
+			top:500px;
+		}
+		.loc1_message{
+			height:250px;
+			width: 250px;
+			position: absolute;
+			left: 35%;
+			top: 35%;
+			background-image: url(talk.png);
+			background-size: 100% 100%;		
+			padding:20px;	
+		}
+		.backwards-player{
+			position:absolute;
+			left:850px;
+			top:700px;
+		}
+		.loc2_message{
+			height:250px;
+			width:250px;
+			position:absolute;
+			left:60%;
+			top:10%;
+			background-image:url(talk.png);
+			background-size:100% 100%;
+			padding-left:30px;
+			padding-right:30px;
+		}
+	</style>
+</head>
+<body style="background-image:url(world.png);background-size:cover">
+<div class="main" style="display:block">
+	<!--дом-->
+	<div class="home">
+		<img src="house.png" style="width:400px;height:400px;">
+	</div>
+	<!--школа-->
+	<div class="school">
+		<img src="school.png" style="width:400px;height:400px;">
+	</div>
+	<div class="main_player">
+		<img src="player.png" style="width:150px;height:150px;">
+	</div>
+</div>
+
+<div class="location1" style="display:none">
+	<!--игрок-->
+	<div class="loc1_player">
+		<img src="player.png" style="width:300px;height:400px;">
+	</div>
+	<!--message-->
+	<div class="loc1_message" style="display:none">
+		<p style="color:black;text-align:center;padding-top:50px;" class="msg font-weight-bold">Скоро в школу, надо покушать и взять рюкзак</p>
+	</div>
+	<!--яблоко-->
+	<div class="apple" style="position:absolute;top:550px;left:800px;">
+		<img src="loc1/apple.png" style="width:100px; height:100px; ">
+	</div>
+	<!--картошка-->
+	<div class="potato" style="position:absolute;top:550px;left:900px;">
+		<img src="loc1/potato.png" style="width:100px;height:100px;">
+	</div>
+	<!--хлеб-->
+	<div class="bread" style="position:absolute;top:550px;left:1000px;">
+		<img src="loc1/bread.png" style="width:100px;height:100px;">
+	</div>
+	<!--вода-->
+	<div class="water" style="position:absolute;top:550px;left:1100px;">
+		<img src="loc1/water.png" style="width:100px;height:100px;">
+	</div>
+	<!--кнопка на улицу-->
+	<button class="btn bg-danger street font-weight-bold text-white" style="width:150px;height:100px;top:85%;left:90%;position:absolute; display:none">На улицу</button>
+</div>
+
+<div class="location2" style="display:none">
+	<!--steve-->
+	<div class="backwards-player">
+		<img src="loc2/backwards.png" style="width:200px;height:300px;">
+	</div>
+	<!--message-->
+	<div class="loc2_message" style="display:none;">
+		<p style="color:black;text-align:center;padding-top:50px;" class="msg_2 font-weight-bold">На столе у вас лежат листочки, там вы должны ответить на вопросы, после того как закончили сдавайте.</p>
+	</div>
+	<!--лист-->
+	<div class="paper" style="position:absolute;top:800px;left:1100px;">
+		<img src="loc2/paper.png" style="width:100px;height:100px;">
+	</div>
+</div>
+
+<!--тест-->
+<div class="test col-6 mx-auto pl-0 pr-0" style="display:none;background-color:#edf1f7">
+	<h1 class="text-center font-weight-bolder">Тест по географии</h1>
+	<h1 style="margin-top:100px;">1) Какова площадь России?</h1>
+	<p class="miss_1_1 font-weight-bold" style="transition:1s;">1) 23 572 900 км²</p>
+	<p class="comment_1_1" style="display:none;transition:1s;">Не так много!</p>
+	<P class="miss_2_1 font-weight-bold" style="transition:1s;">2) 10 396 209 км²</P>
+	<p class="comment_2_1" style="display:none;transition:1s;">Не верно, это ниже.</p>
+	<p class="correct_1 font-weight-bold" style="transition:1s;">3) 17 098 242 км²</p>
+	<p class="comment_cor_1" style="display:none;transition:1s;">Верно!</p>
+
+
+	<h1>2) В какой стране находится город Цинциннати?</h1>
+	<p class="miss_1_2 font-weight-bold" style="transition:1s;">1) Италия</p>
+	<p class="comment_1_2" style="display:none;transition:1s;">Название города хоть и итальянское, но находится он в США</p>
+	<p class="correct_2 font-weight-bold" style="transition:1s;">2) США</p>
+	<p class="comment_cor_2" style="display:none;transition:1s;">Отличное начало! Этот город находится на юго-западе штата Огайо, США</p>
+	<p class="miss_2_2 font-weight-bold" style="transition:1s;">3) Испания</p>
+	<p class="comment_2_2" style="display:none;transition:1s;">Надеемся, что это ваша последняя ошибка. Цинциннати находится на юго-западе штата Огайо, США</p>
+
+
+	<h1>3) Флаг какого государства изображен на фотографии?</h1>
+	<p class="miss_1_3 font-weight-bold" style="transition:1s;">1) Франция</p>
+	<p class="comment_1_3" style="display:none;transition:1s;">По цветовой гамме очень похоже, а вот по расположению цветных полос ничего общего.</p>
+	<p class="miss_2_3 font-weight-bold" style="transition:1s;">2) Россия</p>
+	<p class="comment_2_3" style="display:none;transition:1s;">В этом вопросе мы хотели вас запутать. И у нас получилось.</p>
+	<p class="correct_3 font-weight-bold" style="transition:1s;">3) Нидерланды</p>
+	<p class="comment_cor_3" style="display:none;transition:1s;">Браво! Мы хотели вас запутать, но у нас не получилось.</p>
+	<div class="col-12">
+		<img src="test/flag.webp">
+	</div>
+
+
+	<h1>4) Какая пустыня расположена в южном полушарии?</h1>
+	<p class="correct_4 font-weight-bold" style="transition:1s;">1) Атакама</p>
+	<p class="comment_cor_4" style="display:none;transition:1s;">Супер! Это был не самый простой вопрос. Эта пустыня площадью более 100 тыс кв. км и находится она на западном побережье Южной Америки на территории Чили.</p>
+	<p class="miss_1_4 font-weight-bold" style="transition:1s;">2) Сахара</p>
+	<p class="comment_1_4" style="display:none;transition:1s;">Пустыня Сахара хоть и находится в Африке, но расположена в северном полушарии</p>
+	<p class="miss_2_4 font-weight-bold" style="transition:1s;">3) Кара-Кум</p>
+	<p class="comment_2_4" style="display:none;transition:1s;">Эта пустыня находится в Средней Азии - а это значит, что расположена в северном полушарии.</p>
+	<div class="col-12">
+		<img src="test/desert.png" class="col-12">
+	</div>
+
+
+
+	<h1>5) Какой остров самый большой в мире?</h1>
+	<p class="miss_1_5 font-weight-bold" style="transition:1s;">1) Мадагаскар</p>
+	<p class="comment_1_5" style="display:none;transition:1s;">Ну как же так? Это ведь был самый легкий вопрос</p>
+	<p class="miss_2_5 font-weight-bold" style="transition:1s;">2) Новая Гвинея</p>
+	<p class="comment_2_5" style="display:none;transition:1s;">Это, конечно тоже большой остров, но он в 2 с лишним раза меньше Гренландии.</p>
+	<p class="correct_5 font-weight-bold" style="transition:1s;">3) Гренландия</p>
+	<p class="comment_cor_5" style="display:none;transition:1s;">Очевидно, это был самый легкий вопрос теста. Конечно же Гренландия самый большой остров мира, площадь которого более 2 млн кв. км.</p>
+	<div class="col-12">
+		<img src="test/ostrov.png" class="col-12">
+	</div>
+
+
+	<h1>6)Какая из этих стран имеет выход к Каспийскому морю?</h1>
+	<p class="miss_1_6 font-weight-bold" style="transition:1s;">1) Таджикистан</p>
+	<p class="comment_1_6" style="display:none;transition:1s;">Всего 5 стран имеют выход к Каспию. Но Таджикистан в их число не входит.</p>
+	<p class="correct_6 font-weight-bold" style="transition:1s;">2) Туркменистан</p>
+	<p class="comment_cor_6" style="display:none;transition:1s;">Туркменистан – одна из 5 стран, имеющих выход к этому самому большому закрытому водоему. Сможете назвать остальные 4?</p>
+	<p class="miss_2_6 font-weight-bold" style="transition:1s;">3) Узбекистан</p>
+	<p class="comment_2_6" style="display:none;transition:1s;">Увы... Но Узбекистан не входит в число 5-и стран, имеющих выход к Каспийскому морю.</p>
+	<div class="col-12">
+		<img src="test/six.webp" class="col-12">
+	</div>
+
+
+	<h1>7)В какой стране находится город Шлиссельбург?</h1>
+	<p class="correct_7 font-weight-bold" style="transition:1s;">1) Россия</p>
+	<p class="comment_cor_7" style="display:none;transition:1s;">Город, основанный в 1323 году как новгородская крепость «Орешек», сегодня относится к Кировскому району Ленинградской области.</p>
+	<p class="miss_1_7 font-weight-bold" style="transition:1s;">2) Германия</p>
+	<p class="comment_1_7" style="display:none;transition:1s;">Безусловно, город с таким названием мог бы находиться в любой их перечисленных стран, но сегодня он находится в России.</p>
+	<p class="miss_2_7 font-weight-bold" style="transition:1s;">3) Австрия</p>
+	<p class="comment_2_7" style="display:none;transition:1s;">Если Санкт-Петербург и Екатеринбург находятся в России, то почему бы и Шлиссельбургу не находиться там же?</p>
+	<div class="col-12">
+		<img src="test/8.png" class="col-12">
+	</div>
+
+
+
+	<h1>8)Какое из этих озер находится в Европе?</h1>
+	<p class="miss_1_8 font-weight-bold" style="transition:1s;">1) Виктория</p>
+	<p class="comment_1_8" style="display:none;transition:1s;">Виктория – это самое большое озеро на африканском континенте</p>
+	<p class="correct_8 font-weight-bold" style="transition:1s;">2) Балатон</p>
+	<p class="comment_cor_8" style="display:none;transition:1s;">Точно! Это озеро находится на западе Венгрии и считается крупнейшим в Центральной Европе.</p>
+	<p class="miss_2_8 font-weight-bold" style="transition:1s;">3) Байкал</p>
+	<p class="comment_2_8" style="display:none;transition:1s;">Самое глубокое озеро в мире хоть и находится в России, но географически расположено в Азии.</p>
+	<div class="col-12">
+		<img src="test/ozero.png" class="col-12">
+	</div>														
+</div>
+
+
+
+
+
+<script type="text/javascript">
+
+	let paper = document.querySelector(".paper")
+	let home = document.querySelector(".home")
+	let school = document.querySelector(".school")
+	let main = document.querySelector(".main")
+	let location1 = document.querySelector(".location1")
+	let body = document.querySelector("body")
+	let main_player = document.querySelector(".main_player")
+	let loc1_message = document.querySelector(".loc1_message")
+	let apple = document.querySelector(".apple")
+	let potato = document.querySelector(".potato")
+	let bread = document.querySelector(".bread")
+	let water = document.querySelector(".water")
+	let food = 0;
+	let msg = document.querySelector(".msg")
+	let btn = document.querySelector(".btn")
+	let location2 = document.querySelector(".location2")
+	let loc2_message = document.querySelector(".loc2_message")
+	home.onclick = function(){
+		main_player.style.left = "300px"
+		main_player.style.top = "600px"
+		let showMessage = function(){
+			loc1_message.style.display = "block"
+		}
+		let changeLocation = function(){
+			main.style.display = "none"
+			location1.style.display = "block"
+			body.style.backgroundImage = "url(loc1/insidehouse.jpg)"
+		}
+		setTimeout(showMessage, 4000)
+		setTimeout(changeLocation, 2000)
+	}
+	apple.onclick = function(){
+		apple.style.display = "none"
+		food = food + 1
+		if(food==4){
+			msg.innerHTML = "Отлично! Пора в школу"
+			btn.style.display = "block"
+		}
+	}
+	potato.onclick = function(){
+		potato.style.display = "none"
+		food = food + 1
+		if(food==4){
+			msg.innerHTML = "Отлично! Пора в школу"
+			btn.style.display = "block"
+		}		
+	}
+	bread.onclick = function(){
+		bread.style.display = "none"
+		food = food + 1
+		if(food==4){
+			msg.innerHTML = "Отлично! Пора в школу"
+			btn.style.display = "block"
+		}		
+	}
+	water.onclick = function(){
+		water.style.display = "none"
+		food = food + 1
+		if(food==4){
+			msg.innerHTML = "Отлично! Пора в школу"
+			btn.style.display = "block"
+		}
+	}
+	btn.onclick = function(){
+		location1.style.display = "none"
+		main.style.display = "block"
+		body.style.backgroundImage = "url(world.png)"
+	}
+
+
+	school.onclick = function(){
+		main_player.style.left = "1300px";
+		main_player.style.top = "300px"
+		let showMessage2 = function(){
+			loc2_message.style.display = "block"
+		}
+		let changeLocation2 = function(){
+			main.style.display = "none"
+			location2.style.display = "block"
+			body.style.backgroundImage = "url(loc2/insideschool.jpg)"
+		}
+		setTimeout(showMessage2, 4000)
+		setTimeout(changeLocation2, 2000)
+	}
+	let test = document.querySelector(".test")
+	let miss1_1 = document.querySelector(".miss_1_1")
+	let miss2_1 = document.querySelector(".miss_2_1")
+	let miss1_2 = document.querySelector(".miss_1_2")
+	let miss2_2 = document.querySelector(".miss_2_2")
+	let miss1_3 = document.querySelector(".miss_1_3")
+	let miss2_3 = document.querySelector(".miss_2_3")
+	let miss1_4 = document.querySelector(".miss_1_4")
+	let miss2_4 = document.querySelector(".miss_2_4")
+	let miss1_5 = document.querySelector(".miss_1_5")
+	let miss2_5 = document.querySelector(".miss_2_5")
+	let miss1_6 = document.querySelector(".miss_1_6")
+	let miss2_6 = document.querySelector(".miss_2_6")
+	let miss1_7 = document.querySelector(".miss_1_7")
+	let miss2_7 = document.querySelector(".miss_2_7")
+	let miss1_8 = document.querySelector(".miss_1_8")
+	let miss2_8 = document.querySelector(".miss_2_8")
+	let correct_1 = document.querySelector(".correct_1")
+	let correct_2 = document.querySelector(".correct_2")
+	let correct_3 = document.querySelector(".correct_3")
+	let correct_4 = document.querySelector(".correct_4")
+	let correct_5 = document.querySelector(".correct_5")
+	let correct_6 = document.querySelector(".correct_6")
+	let correct_7 = document.querySelector(".correct_7")
+	let correct_8 = document.querySelector(".correct_8")
+	let comment_1_1 = document.querySelector(".comment_1_1")
+	let comment_2_1 = document.querySelector(".comment_2_1")
+	let comment_1_2 = document.querySelector(".comment_1_2")
+	let comment_2_2 = document.querySelector(".comment_2_2")
+	let comment_1_3 = document.querySelector(".comment_1_3")
+	let comment_2_3 = document.querySelector(".comment_2_3")
+	let comment_1_4 = document.querySelector(".comment_1_4")
+	let comment_2_4 = document.querySelector(".comment_2_4")
+	let comment_1_5 = document.querySelector(".comment_1_5")
+	let comment_2_5 = document.querySelector(".comment_2_5")
+	let comment_1_6 = document.querySelector(".comment_1_6")
+	let comment_2_6 = document.querySelector(".comment_2_6")
+	let comment_1_7 = document.querySelector(".comment_1_7")
+	let comment_2_7 = document.querySelector(".comment_2_7")
+	let comment_1_8 = document.querySelector(".comment_1_8")
+	let comment_2_8 = document.querySelector(".comment_2_8")
+	let comment_cor_1 = document.querySelector(".comment_cor_1")
+	let comment_cor_2 = document.querySelector(".comment_cor_2")
+	let comment_cor_3 = document.querySelector(".comment_cor_3")
+	let comment_cor_4 = document.querySelector(".comment_cor_4")
+	let comment_cor_5 = document.querySelector(".comment_cor_5")
+	let comment_cor_6 = document.querySelector(".comment_cor_6")
+	let comment_cor_7 = document.querySelector(".comment_cor_7")
+	let comment_cor_8 = document.querySelector(".comment_cor_8")
+	let mark = 0;
+	let pyaterka = "Ты получил 5. Молодец!"
+	let chetire = "Ты получил 4. Молодец!"
+	let tri = "Ты получил 3. В следующий раз попытайся сделать лучше."
+	let dva = "Ты получил 2. Тебе срочно надо учить географию"
+	paper.onclick = function(){
+		location2.style.display = "none"
+		body.style.backgroundImage = "none"
+		test.style.display = "block"
+	}
+	miss1_1.onclick = function(){
+		miss1_1.style.color = "red"
+		correct_1.style.color = "green"
+		comment_1_1.style.display = "block"
+	}
+	miss2_1.onclick = function(){
+		miss2_1.style.color = "red"
+		correct_1.style.color = "green"
+		comment_2_1.style.display = "block"
+	}
+	correct_1.onclick = function(){
+		correct_1.style.color = "green"
+		comment_cor_1.style.display = "block"
+		mark = mark + 1
+	}
+	miss1_2.onclick = function(){
+		miss1_2.style.color = "red"
+		correct_2.style.color = "green"
+		comment_1_2.style.display = "block"
+	}
+	miss2_2.onclick = function(){
+		miss2_2.style.color = "red"
+		correct_2.style.color = "green"
+		comment_2_2.style.display = "block"
+	}
+	correct_2.onclick = function(){
+		correct_2.style.color = "green"
+		comment_cor_2.style.display = "block"
+		mark = mark + 1
+	}
+	miss1_3.onclick = function(){
+		miss1_3.style.color = "red"
+		correct_3.style.color = "green"
+		comment_1_3.style.display = "block"
+	}
+	miss2_3.onclick = function(){
+		miss2_3.style.color = "red"
+		correct_3.style.color = "green"
+		comment_2_3.style.display = "block"
+	}
+	correct_3.onclick = function(){
+		correct_3.style.color = "green"
+		comment_cor_3.style.display = "block"
+		mark = mark + 1
+	}
+	miss1_4.onclick = function(){
+		miss1_4.style.color = "red"
+		correct_3.style.color = "green"
+		comment_1_4.style.display = "block"
+	}
+	miss2_4.onclick = function(){
+		miss2_4.style.color = "red"
+		correct_4.style.color = "green"
+		comment_2_4.style.display = "block"
+	}
+	correct_4.onclick = function(){
+		correct_4.style.color = "green"
+		comment_cor_4.style.display = "block"
+		mark = mark + 1
+	}
+	miss1_5.onclick = function(){
+		miss1_5.style.color = "red"
+		correct_5.style.color = "green"
+		comment_1_5.style.display = "block"
+	}
+	miss2_5.onclick = function(){
+		miss2_5.style.color = "red"
+		correct_5.style.color = "green"
+		comment_2_5.style.display = "block"
+	}
+	correct_5.onclick = function(){
+		correct_5.style.color = "green"
+		comment_cor_5.style.display = "block"
+		mark = mark + 1
+	}
+	miss1_6.onclick = function(){
+		miss1_6.style.color = "red"
+		correct_6.style.color = "green"
+		comment_1_6.style.display = "block"
+	}
+	miss2_6.onclick = function(){
+		miss2_6.style.color = "red"
+		correct_6.style.color = "green"
+		comment_2_6.style.display = "block"
+	}
+	correct_6.onclick = function(){
+		correct_6.style.color = "green"
+		comment_cor_6.style.display = "block"
+		mark = mark + 1
+	}
+	miss1_7.onclick = function(){
+		miss1_7.style.color = "red"
+		correct_7.style.color = "green"
+		comment_1_7.style.display = "block"
+	}
+	miss2_7.onclick = function(){
+		miss2_7.style.color = "red"
+		correct_7.style.color = "green"
+		comment_2_7.style.display = "block"
+	}
+	correct_7.onclick = function(){
+		correct_7.style.color = "green"
+		comment_cor_7.style.display = "block"
+		mark = mark + 1
+	}
+	miss1_8.onclick = function(){
+		miss1_8.style.color = "red"
+		correct_8.style.color = "green"
+		comment_1_8.style.display = "block"
+		if(mark>=7){
+			alert(pyaterka)
+		}
+		if(mark==6 || mark==5){
+			alert(chetire)
+		}
+		if(mark==4 || mark==3){
+			alert(tri)
+		}
+		if(mark<3){
+			alert(dva)
+		}
+		test.style.display = "none"			
+	}
+	miss2_8.onclick = function(){
+		miss2_8.style.color = "red"
+		correct_8.style.color = "green"
+		comment_2_8.style.display = "block"
+		if(mark>=7){
+			alert(pyaterka)
+		}
+		if(mark==6 || mark==5){
+			alert(chetire)
+		}
+		if(mark==4 || mark==3){
+			alert(tri)
+		}
+		if(mark<3){
+			alert(dva)
+		}
+		test.style.display = "none"				
+	}
+	correct_8.onclick = function(){
+		correct_8.style.color = "green"
+		comment_cor_8.style.display = "block"
+		mark = mark + 1
+		if(mark>=7){
+			alert(pyaterka)
+		}
+		if(mark==6 || mark==5){
+			alert(chetire)
+		}
+		if(mark==4 || mark==3){
+			alert(tri)
+		}
+		if(mark<3){
+			alert(dva)
+		}
+		test.style.display = "none"		
+	}						
+</script>
+</body>
+</html>
